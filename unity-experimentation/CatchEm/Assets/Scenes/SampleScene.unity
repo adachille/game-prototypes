@@ -724,7 +724,7 @@ GameObject:
   - component: {fileID: 252994910}
   m_Layer: 0
   m_Name: Gibbit (1)
-  m_TagString: Untagged
+  m_TagString: Gibbit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -800,7 +800,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -848,7 +848,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.4009434, b: 0.9074626, a: 1}
+  m_Color: {r: 0.69803923, g: 0.11764706, b: 0.7647059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1491,6 +1491,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1566,12 +1567,25 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 1.7, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e986028ade16c9d408fe0f44b1fc248f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToFollow: {fileID: 709360654}
 --- !u!1 &550355477
 GameObject:
   m_ObjectHideFlags: 0
@@ -2005,7 +2019,7 @@ GameObject:
   - component: {fileID: 620573155}
   m_Layer: 0
   m_Name: Unpacking Zone
-  m_TagString: Untagged
+  m_TagString: UnpackingZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2239,10 +2253,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a32bc2f5923349142a9f50dc37eaaf7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 300
+  turnSpeed: 200
   acceleration: 10
-  deceleration: 200
-  maxSpeed: 10
+  breakDeceleration: 200
+  idleDeceleration: 50
+  maxSpeed: 20
 --- !u!212 &709360656
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2394,6 +2409,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d845fdb3677a5984e82b6db750adde08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noPackageColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  hasPackageColor:
+    serializedVersion: 2
+    rgba: 4288822764
 --- !u!1 &713679202
 GameObject:
   m_ObjectHideFlags: 0
@@ -2619,7 +2640,7 @@ GameObject:
   - component: {fileID: 907808799}
   m_Layer: 0
   m_Name: Gibbit (2)
-  m_TagString: Untagged
+  m_TagString: Gibbit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2695,7 +2716,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2743,7 +2764,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.4009434, b: 0.9074626, a: 1}
+  m_Color: {r: 0.69803923, g: 0.11764706, b: 0.7647059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2767,7 +2788,7 @@ GameObject:
   - component: {fileID: 916304299}
   m_Layer: 0
   m_Name: Gibbit
-  m_TagString: Untagged
+  m_TagString: Gibbit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2814,7 +2835,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.4009434, b: 0.9074626, a: 1}
+  m_Color: {r: 0.69803923, g: 0.11764706, b: 0.7647059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2868,7 +2889,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

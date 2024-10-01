@@ -6,8 +6,10 @@ using UnityEngine;
 public class Driver : MonoBehaviour
 {
     [SerializeField] float turnSpeed = 200f;
-    [SerializeField] float acceleration = 30f;
-    [SerializeField] float deceleration = 90f;
+    [SerializeField] float acceleration = 10f;
+    [SerializeField] float breakDeceleration = 200f;
+    [SerializeField] float idleDeceleration = 50f;
+
     [SerializeField] float maxSpeed = 20f;
     float curSpeed = 0f;
 
@@ -32,16 +34,17 @@ public class Driver : MonoBehaviour
     {
         float direction = Math.Sign(Input.GetAxis("Vertical"));
         float deltaSpeed;
+
         if (direction == 0) { 
-            deltaSpeed = -Math.Sign(curSpeed) * deceleration * Time.deltaTime;
+            deltaSpeed = -Math.Sign(curSpeed) * idleDeceleration * Time.deltaTime;
         }
         else if (Math.Sign(direction) != Math.Sign(curSpeed))
         {
-            deltaSpeed = direction * deceleration * Time.deltaTime;
+            deltaSpeed = direction * breakDeceleration * Time.deltaTime;
         }
         else
         {
-            deltaSpeed = direction * deceleration * Time.deltaTime;
+            deltaSpeed = direction * acceleration * Time.deltaTime;
         }
         curSpeed = Math.Clamp(curSpeed + deltaSpeed, -maxSpeed, maxSpeed);
         float moveAmount = curSpeed * Time.deltaTime;
