@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float torqueAmount = 0.1f;
+    [SerializeField] Vector2 startPosition = new Vector2(0, 2);
+    [SerializeField] float torqueAmount = 3.0f;
+
     Rigidbody2D rb2d;
-    // Start is called before the first frame update
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        ResetPlayer();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetAxis("Horizontal") != 0) {
             rb2d.AddTorque(-Input.GetAxis("Horizontal") * torqueAmount);
         }
+    }
+
+    public void ResetPlayer() {
+        transform.position = startPosition;
+        rb2d.velocity = Vector2.zero;
     }
 }
